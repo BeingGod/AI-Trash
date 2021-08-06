@@ -28,7 +28,7 @@
 │   ├── model   # 加载模型路径
 │   ├── test.py # 测试程序
 │   ├── ui.py   # 可视化界面
-│   └── video   # 视宣传频路径
+│   └── video   # 宣传视频路径
 ├── LICENSE
 ├── README.md
 ├── tools
