@@ -40,7 +40,7 @@ def get_dataset_label(path):
                 m_list.append(m.reshape((3,)))
                 s_list.append(s.reshape((3,)))
 
-                file_path = os.path.join(path, "images/{}/{}".format(path, dic, filename))
+                file_path = os.path.join(path, "images/{}/{}".format(dic, filename))
                 lines.append([file_path, label])
             os.chdir('../')
 
