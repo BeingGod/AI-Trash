@@ -78,5 +78,5 @@ python3 train.py
 2. 运行`app/`目录下的`app.py`文件
 
 ```bash
-python app.py
+python3 app.py
 ```
