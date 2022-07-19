@@ -15,39 +15,13 @@ import os
 import sys
 
 
-def k(path):
-    dicts = os.listdir("{}images".format(path))
+def get_dataset_label(path):
+    dicts = os.listdir(os.path.join(path,"images"))
     lines = []
     m_list, s_list = [], []
 
-    # try:
-    #     os.chdir("{}images".format(path))
-
-    #     for i in range(len(dicts)):
-    #         dic = dicts[i]
-    #         os.chdir('{}'.format(dic))
-    #         files = os.listdir('./')
-
-    #         label = -1
-    #         if files[1][-6] != '_':
-    #             label = files[1][-6:-4]
-    #         else:
-    #             label = files[1][-5]
-            
-    #         for filename in files:
-    #             filename = list(filename)
-    #             filename = ''.join(filename)
-
-    #             file_path = '{}images/{}/{}'.format(path, dic, filename)
-    #             lines.append([file_path, label])
-    #         os.chdir('../')
-
-    # except Exception as FileNotFoundError:
-    #     print("[ERROR] Not exists dict")
-    #     sys.exit(-1)
-
     try:
-        os.chdir("{}images".format(path))
+        os.chdir(os.path.join(path, "images"))
 
         for i in range(len(dicts)):
             dic = dicts[i]
@@ -66,7 +40,7 @@ def k(path):
                 m_list.append(m.reshape((3,)))
                 s_list.append(s.reshape((3,)))
 
-                file_path = '{}images/{}/{}'.format(path, dic, filename)
+                file_path = os.path.join(path, "images/{}/{}".format(path, dic, filename))
                 lines.append([file_path, label])
             os.chdir('../')
 
@@ -95,5 +69,5 @@ def save_as_csv(data,path):
 
 if __name__ == "__main__":
     path = sys.argv[1]
-    data = k(path)
+    data = get_dataset_label(path)
     save_as_csv(data,path)
